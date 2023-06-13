@@ -44,11 +44,35 @@ function loadImages() {
     const data = randomImage()
     data.forEach(item => {
         game.innerHTML += `<div class="uno-block">
-        <img onClick={handleClickBoard} class="placeholder" src="${placeholder.imageSrc}" alt="${placeholder.name}">
+        <img class="placeholder " src="${placeholder.imageSrc}" alt="${placeholder.name}">
         <img class="mistery" src="${item.imageSrc}" name="${item.name}" alt="${item.name}">
         </div>`
     });  
     
 }
-
 loadImages()
+
+
+
+const showMystery = (element) => {
+    element.classList.add('reverse')
+    
+}
+
+setTimeout(() => {
+    document.querySelectorAll('.uno-block').forEach(x => {
+        x.addEventListener('click' ,(e) => {
+            showMystery(e.currentTarget);
+        });
+    })
+}, 1000);
+
+function isPaired(firtsImage, secondImage){
+    document.querySelector('.uno-block').forEach(x =>{
+        x.addEventListener('click', ()=>{
+            //return x.name
+            console.log(x.name)
+        })
+    })
+}
+isPaired()
