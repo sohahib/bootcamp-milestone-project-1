@@ -40,6 +40,12 @@ const randomImage = ()=>{
     return data
 }
 
+let isFirst = 0
+let firstImageNname = ''
+let totalScore = 0
+let firstCard 
+
+
 function loadImages() {
     const data = randomImage()
     data.forEach(item => {
@@ -48,31 +54,43 @@ function loadImages() {
         <img class="mistery" src="${item.imageSrc}" name="${item.name}" alt="${item.name}">
         </div>`
     });  
+    const showMystery = (element) => {
+        element.classList.add('reverse')
+
+         if(isFirst == 0){
+            isFirst = 1
+            firstImageNname = element.children[1].name
+            firstCard = element
+         }else if (isFirst == 1 ){
+            isFirst = 0
+            if(firstImageNname == element.children[1].name){
+                totalScore++
+                score.innerHTML =`Score: ${totalScore}`
+                console.log('yay!')
+            }else{
+                console.log('not a match')
+                setTimeout(() => {
+                    element.classList.remove('reverse')
+                    firstCard.classList.remove('reverse')
+                }, 1000);
+            }
+         }
+
+    }
     
+    setTimeout(() => {
+        document.querySelectorAll('.uno-block').forEach(x => {
+            x.addEventListener('click' ,(e) => {
+                showMystery(e.currentTarget);
+            });
+        })
+    }, 1000);
+
+
+
 }
 loadImages()
 
 
 
-const showMystery = (element) => {
-    element.classList.add('reverse')
-    
-}
 
-setTimeout(() => {
-    document.querySelectorAll('.uno-block').forEach(x => {
-        x.addEventListener('click' ,(e) => {
-            showMystery(e.currentTarget);
-        });
-    })
-}, 1000);
-
-function isPaired(firtsImage, secondImage){
-    document.querySelector('.uno-block').forEach(x =>{
-        x.addEventListener('click', ()=>{
-            //return x.name
-            console.log(x.name)
-        })
-    })
-}
-isPaired()
