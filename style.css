@@ -12,14 +12,16 @@
     width: auto;
     height: auto;
     margin: auto;
-    /* background-color: beige;  */
 }
 .game-board{
-    width: 900px;
+    width: 568px;
+    margin: auto;
     position: relative;
     display: flex;
     flex-wrap: wrap;
     transition: 0.5s all;
+    border: 3px solid green;
+    border-radius: 3px;
 }
 
 .game-board .uno-block{
@@ -29,8 +31,8 @@
 
 .game-board .uno-block .placeholder,
 .game-board .uno-block .mistery{
-    width: 200px;
-    height: 200px;
+    width: 140px;
+    height: 140px;
     background-color: mediumseagreen;
     cursor: pointer;
 }
@@ -48,7 +50,9 @@
 .game-board .uno-block.reverse .mistery{
     animation: reverseflip 0.5s;
 }
-
+.unclickable{
+    pointer-events: none;
+}
 
 @keyframes flip {
     0%{
