@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: 'poppins', sans-serif;
+    background-color: aliceblue;
 }
 .container{
     display: flex; 
@@ -20,13 +21,35 @@
     display: flex;
     flex-wrap: wrap;
     transition: 0.5s all;
-    border: 3px solid green;
+    /* border: 3px solid green; */
     border-radius: 3px;
+}
+.game-board .start-game-board{
+    text-align: center;
+    margin-top: 300px;
+    transition: all 0.5s;
+}
+.game-board .start-game-board p{
+    font-size: 30px;
+}
+.game-board .start-game-board button{
+    padding: 10px 10px;
+    cursor: pointer;
+    font-size: 25px; 
+    outline: none;
+    border: 2px solid mediumseagreen;
+    border-radius: 5px;
+    background: white;
+    margin-top: 30px;
+}
+.game-board .start-game-board button:hover{
+    background-color: mediumseagreen;
 }
 
 .game-board .uno-block{
     position: relative;
     border: 1px solid #fff;
+    transition: all 0.5s;
 }
 
 .game-board .uno-block .placeholder,

@@ -47,7 +47,23 @@ let firstImageNname = ''
 let totalScore = 0
 let firstCard 
 
+function startNewGame(){
+    timer.innerHTML = ''
+    score.innerHTML = ''
+    game.innerHTML = `<div class="start-game-board">
+        <p>Welcome to <strong>Master Memory Game</strong>. </br> A game that tests your memory.
+        choose pairs of images and see if they match. </br></p>
+        <button class='btn-start' >Click to Start</button>
+        </div>`
+        let button = document.querySelector('.btn-start')
+        button.addEventListener('click', loadImages)
+}
+startNewGame()
+
 function loadImages() {
+    game.innerHTML = ''
+    score.innerHTML =`Score: ${totalScore}`
+    timer.innerHTML = `Timer: 0`
     const data = randomImage()
     data.forEach(item => {
         game.innerHTML += `<div class="uno-block">
@@ -67,8 +83,6 @@ function loadImages() {
 
     
 }
-loadImages()
-
 const showMystery = (element) => {
     element.classList.add('reverse')
 
