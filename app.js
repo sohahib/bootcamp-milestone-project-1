@@ -1,6 +1,6 @@
 const fruits = ['😴😄😃⛔🎠🚓🚇'];
 
-let timer = document.querySelector('.timer')
+let timerTag = document.querySelector('.timer')
 let score = document.querySelector('.score')
 let game = document.querySelector('.game-board')
 let image = document.getElementsByTagName('img')
@@ -46,14 +46,15 @@ let isFirst = 0
 let firstImageNname = ''
 let totalScore = 0
 let firstCard 
+let count = 60
 
 function startNewGame(){
-    timer.innerHTML = ''
+    timerTag.innerHTML = ''
     score.innerHTML = ''
     game.innerHTML = `<div class="start-game-board">
         <p>Welcome to <strong>Master Memory Game</strong>. </br> A game that tests your memory.
         choose pairs of images and see if they match. </br></p>
-        <button class='btn-start' >Click to Start</button>
+        <button class='btn-start'>Click to Start</button>
         </div>`
         let button = document.querySelector('.btn-start')
         button.addEventListener('click', loadImages)
@@ -61,9 +62,10 @@ function startNewGame(){
 startNewGame()
 
 function loadImages() {
+    countdown()
     game.innerHTML = ''
     score.innerHTML =`Score: ${totalScore}`
-    timer.innerHTML = `Timer: 0`
+    timerTag.innerHTML = `Timer: ${count}`
     const data = randomImage()
     data.forEach(item => {
         game.innerHTML += `<div class="uno-block">
@@ -111,5 +113,10 @@ const showMystery = (element) => {
 
 }
 
+function countdown(){
+    let timer = setInterval(function() {
 
-
+        timerTag.innerHTML = `Timer: ${count--}`;
+        if(count == -1) clearInterval(timer);
+    }, 1000);
+}
