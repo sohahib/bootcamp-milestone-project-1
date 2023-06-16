@@ -4,6 +4,7 @@ let timerTag = document.querySelector('.timer')
 let score = document.querySelector('.score')
 let game = document.querySelector('.game-board')
 let image = document.getElementsByTagName('img')
+let container = document.querySelector('.container')
 
 const images = ()=>[
     {imageSrc:'./images/1.svg', name:'lemon'},
@@ -46,20 +47,24 @@ let isFirst = 0
 let firstImageNname = ''
 let totalScore = 0
 let firstCard 
-let count = 60
+let count = 3
 
 function startNewGame(){
     timerTag.innerHTML = ''
     score.innerHTML = ''
-    game.innerHTML = `<div class="start-game-board">
-        <p>Welcome to <strong>Master Memory Game</strong>. </br> A game that tests your memory.
-        choose pairs of images and see if they match. </br></p>
+    game.innerHTML = `
+      
+    <div class="start-game-board">
+    <img src='./images/landingPage.jpeg' />  
+        <p>Welcome to <strong>Master Memory Game</strong>. </br> A game that tests your memory. </br>
+        Choose pairs of images and see if they match.You have 60 seconds to make as many pairs as possible.
+         </br></p>
         <button class='btn-start'>Click to Start</button>
         </div>`
         let button = document.querySelector('.btn-start')
         button.addEventListener('click', loadImages)
 }
-startNewGame()
+//startNewGame()
 
 function loadImages() {
     countdown()
@@ -101,7 +106,6 @@ const showMystery = (element) => {
             console.log('yay!')
             element.classList.add('unclickable')
         }else{
-            console.log('not a match')
             setTimeout(() => {
                 element.classList.remove('reverse')
                 firstCard.classList.remove('reverse')
@@ -110,13 +114,25 @@ const showMystery = (element) => {
             element.classList.remove('unclickable')
         }
      }
-
 }
+loadImages()
 
 function countdown(){
     let timer = setInterval(function() {
 
-        timerTag.innerHTML = `Timer: ${count--}`;
-        if(count == -1) clearInterval(timer);
+        if(count <= 0) {
+            clearInterval(timer)
+            timerTag.innerHTML = `Timer: ${count}`;
+            container.innerHTML =`<div class="start-game-board">
+            <p>You've got <strong>${totalScore}</strong> correct match. </p>
+            <button  class="btn-start btn-try-again"> Try Again </button>
+            </div>`
+        } else {
+            timerTag.innerHTML = `Timer: ${count--}`;
+        }
     }, 1000);
+    
 }
+
+)
+

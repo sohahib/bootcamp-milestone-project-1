@@ -24,15 +24,19 @@
     /* border: 3px solid green; */
     border-radius: 3px;
 }
-.game-board .start-game-board{
+.start-game-board{
     text-align: center;
-    margin-top: 300px;
+    margin-top: 100px;
     transition: all 0.5s;
 }
-.game-board .start-game-board p{
+.start-game-board img{
+    width: 400px;
+    border-radius: 10px;
+}
+.start-game-board p{
     font-size: 30px;
 }
-.game-board .start-game-board button{
+.start-game-board button{
     padding: 10px 10px;
     cursor: pointer;
     font-size: 25px; 
@@ -41,28 +45,33 @@
     border-radius: 5px;
     background: white;
     margin-top: 30px;
+    transition: 0.5s;
 }
 .game-board .start-game-board button:hover{
     background-color: mediumseagreen;
+    color:  white;
 }
 
 .game-board .uno-block{
     position: relative;
     border: 1px solid #fff;
     transition: all 0.5s;
+    
 }
 
 .game-board .uno-block .placeholder,
 .game-board .uno-block .mistery{
     width: 140px;
     height: 140px;
-    background-color: mediumseagreen;
+    background-color: rgb(184, 210, 232);
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .game-board .uno-block .placeholder{
     position: absolute;
     visibility: visible;
+    border-radius: 5px;
 }
 
 .game-board .uno-block.reverse .placeholder{
