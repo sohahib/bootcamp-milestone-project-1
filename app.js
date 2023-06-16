@@ -64,7 +64,7 @@ function startNewGame(){
         let button = document.querySelector('.btn-start')
         button.addEventListener('click', loadImages)
 }
-//startNewGame()
+startNewGame()
 
 function loadImages() {
     countdown()
@@ -115,7 +115,7 @@ const showMystery = (element) => {
         }
      }
 }
-loadImages()
+//loadImages()
 
 function countdown(){
     let timer = setInterval(function() {
@@ -134,5 +134,9 @@ function countdown(){
     
 }
 
-)
+// let playAgainButton = document.querySelector('.btn-try-again')
+// playAgainButton.addEventListener('click', ()=>{
+//  console.log('click')
+//  loadImages
+// })
 
