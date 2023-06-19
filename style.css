@@ -116,7 +116,34 @@
     }
 }
 
-@media (max-width: 400px){
-    
+@media (max-width: 600px){
+    .game-board{
+        width: 240px;
+    }
+    .game-board .uno-block .placeholder,
+.game-board .uno-block .mistery{
+    width: 60px;
+    height: 60px;
+}
+.start-game-board img{
+    width: 200px;
+}
+.start-game-board p{
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.start-game-board button{
+    padding: 5px 5px;
+    font-size: 12px;
+}
+.start-game-board a{
+    font-size: 20px;
+    padding: 3px 5px;
+}
+
+
+
+
+
 }
 

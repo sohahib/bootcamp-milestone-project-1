@@ -47,7 +47,7 @@ let isFirst = 0
 let firstImageNname = ''
 let totalScore = 0
 let firstCard 
-let count = 3
+let count = 60
 let timeForNewGame = false
 
 function startNewGame(){
