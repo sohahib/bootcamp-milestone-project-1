@@ -50,6 +50,8 @@ let firstCard
 let count = 60
 let timeForNewGame = false
 
+
+// Start/Load the game board
 function startNewGame(){
     timerTag.innerHTML = ''
     score.innerHTML = ''
@@ -66,6 +68,7 @@ function startNewGame(){
 }
 startNewGame()
 
+// Handling random display of images
 function loadImages() {
     countdown()
     game.innerHTML = ''
@@ -90,6 +93,8 @@ function loadImages() {
 
     
 }
+
+// handling click, reveal, hide, score incrment fonctionnalities
 const showMystery = (element) => {
     element.classList.add('reverse')
      if(isFirst == 0){
@@ -114,8 +119,8 @@ const showMystery = (element) => {
         }
      }
 }
-//loadImages()
 
+// setting the 60 seconds timer
 function countdown(){
     let timer = setInterval(function() {
         if(count <= 0) {

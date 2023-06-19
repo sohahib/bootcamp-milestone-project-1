@@ -21,7 +21,6 @@
     display: flex;
     flex-wrap: wrap;
     transition: 0.5s all;
-    /* border: 3px solid green; */
     border-radius: 3px;
 }
 .start-game-board{
@@ -116,6 +115,7 @@
     }
 }
 
+/* ------ Small Screens -------- */
 @media (max-width: 600px){
     .game-board{
         width: 240px;
