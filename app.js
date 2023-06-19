@@ -50,6 +50,18 @@ let firstCard
 let count = 60
 let timeForNewGame = false
 
+// Audio
+let audio = document.getElementById('myAudio')
+   audio.style.display = 'none'
+
+function playAudio(){
+    audio.play()
+}
+playAudio()
+
+function pauseAudio(){
+    audio.pause()
+}
 
 // Start/Load the game board
 function startNewGame(){
@@ -64,7 +76,7 @@ function startNewGame(){
         <button class='btn-start'>Click to Start</button>
         </div>`
         let button = document.querySelector('.btn-start')
-        button.addEventListener('click', loadImages)
+        button.addEventListener('click', loadImages, playAudio)
 }
 startNewGame()
 
@@ -130,6 +142,7 @@ function countdown(){
             <p>You've got <strong>${totalScore}</strong> correct match. </p>
             <a href="index.html" class='btn-start btn-try-again'> Try Again </a
             </div>`
+            pauseAudio()
         } else {
             timerTag.innerHTML = `Timer: ${count--}`;
         }
