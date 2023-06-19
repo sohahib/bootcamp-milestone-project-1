@@ -35,6 +35,7 @@
 }
 .start-game-board p{
     font-size: 30px;
+    margin-bottom: 10px;
 }
 .start-game-board button{
     padding: 10px 10px;
@@ -51,7 +52,16 @@
     background-color: mediumseagreen;
     color:  white;
 }
-
+.start-game-board a{
+    outline: none;
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    padding: 5px 10px;
+    border: 2px solid mediumseagreen;
+    border-radius: 5px;
+    background-color: #fff;
+}
 .game-board .uno-block{
     position: relative;
     border: 1px solid #fff;
@@ -106,4 +116,7 @@
     }
 }
 
+@media (max-width: 400px){
+    
+}
 

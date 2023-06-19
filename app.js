@@ -48,12 +48,12 @@ let firstImageNname = ''
 let totalScore = 0
 let firstCard 
 let count = 3
+let timeForNewGame = false
 
 function startNewGame(){
     timerTag.innerHTML = ''
     score.innerHTML = ''
     game.innerHTML = `
-      
     <div class="start-game-board">
     <img src='./images/landingPage.jpeg' />  
         <p>Welcome to <strong>Master Memory Game</strong>. </br> A game that tests your memory. </br>
@@ -92,7 +92,6 @@ function loadImages() {
 }
 const showMystery = (element) => {
     element.classList.add('reverse')
-
      if(isFirst == 0){
         isFirst = 1
         firstImageNname = element.children[1].name
@@ -100,18 +99,18 @@ const showMystery = (element) => {
         firstCard.classList.add('unclickable')
      }else if (isFirst == 1 ){
         isFirst = 0
+        element.classList.add('unclickable')
         if(firstImageNname == element.children[1].name){
             totalScore++
             score.innerHTML =`Score: ${totalScore}`
-            console.log('yay!')
-            element.classList.add('unclickable')
         }else{
+            firstCard.classList.remove('unclickable')
+            element.classList.remove('unclickable')
             setTimeout(() => {
                 element.classList.remove('reverse')
                 firstCard.classList.remove('reverse')
-            }, 1000);
-            firstCard.classList.remove('unclickable')
-            element.classList.remove('unclickable')
+            }, 400);
+            
         }
      }
 }
@@ -119,13 +118,12 @@ const showMystery = (element) => {
 
 function countdown(){
     let timer = setInterval(function() {
-
         if(count <= 0) {
             clearInterval(timer)
             timerTag.innerHTML = `Timer: ${count}`;
-            container.innerHTML =`<div class="start-game-board">
+            container.innerHTML =`<div class="start-game-board new-game">
             <p>You've got <strong>${totalScore}</strong> correct match. </p>
-            <button  class="btn-start btn-try-again"> Try Again </button>
+            <a href="index.html" class='btn-start btn-try-again'> Try Again </a
             </div>`
         } else {
             timerTag.innerHTML = `Timer: ${count--}`;
@@ -133,10 +131,4 @@ function countdown(){
     }, 1000);
     
 }
-
-// let playAgainButton = document.querySelector('.btn-try-again')
-// playAgainButton.addEventListener('click', ()=>{
-//  console.log('click')
-//  loadImages
-// })
 
