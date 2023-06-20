@@ -101,9 +101,7 @@ function loadImages() {
                 showMystery(e.currentTarget);
             });
         })
-    }, 1000);
-
-    
+    }, 500);
 }
 
 // handling click, reveal, hide, score incrment fonctionnalities
@@ -120,16 +118,24 @@ const showMystery = (element) => {
         if(firstImageNname == element.children[1].name){
             totalScore++
             score.innerHTML =`Score: ${totalScore}`
+            if(totalScore == 12 ){
+                console.log('no more cards')
+                container.innerHTML =`<div class="start-game-board new-game">
+                <p>Congratulations! </br> You've got <trong>${totalScore}</trong> correct match out of ${totalScore}.
+                </br> You are the master! </p>
+                <a href="index.html" class='btn-start btn-try-again'> Try Again </a
+                </div>`
+             }
         }else{
             firstCard.classList.remove('unclickable')
             element.classList.remove('unclickable')
             setTimeout(() => {
                 element.classList.remove('reverse')
                 firstCard.classList.remove('reverse')
-            }, 400);
-            
+            }, 500);
         }
      }
+     
 }
 
 // setting the 60 seconds timer
@@ -147,6 +153,4 @@ function countdown(){
             timerTag.innerHTML = `Timer: ${count--}`;
         }
     }, 1000);
-    
 }
-
